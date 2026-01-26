@@ -9,3 +9,5 @@ A concurrent order processing system built in Go, demonstrating goroutines, chan
 - **Thread-Safe Storage**: In-memory storage with mutex locks for safe concurrent access
 - **Asynchronous Queue**: Buffered channel (capacity: 100) for order queue management
 - **RESTful API**: HTTP endpoints for order creation and status tracking
+- **Graceful Shutdown**: Proper cleanup of resources on termination
+
