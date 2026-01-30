@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"time"
+	"sync"
 
 	"github.com/imhaqer/order-processing-service/internal/models"
 	"github.com/imhaqer/order-processing-service/internal/storage"
@@ -11,23 +12,29 @@ import (
 
 // manages a pool of workers processing orders concurrently
 type Pool struct {
-	orderQueue chan string
-	storage    *storage.MemoryStorage
-	numWorkers int
+	orderQueue 	chan string
+	storage    	*storage.MemoryStorage
+	numWorkers 	int
+	wg 			sync.WaitGroup // zero-value ready to use
 }
 
 func NewPool(numWorkers int, queueSize int, storage *storage.MemoryStorage) *Pool {
 	return &Pool{
-		orderQueue: make(chan string, queueSize),
-		storage:    storage,
-		numWorkers: numWorkers,
+		orderQueue: 	make(chan string, queueSize),
+		storage:    	storage,
+		numWorkers: 	numWorkers,
 	}
 }
 
 
 func (p *Pool) Start() {
 	for i := 0; i < p.numWorkers; i++ {
-		go p.worker(i)
+		p.wg.Add(1)
+		workerID := i
+		go func() {
+			defer p.wg.Done()  // mark done when exits
+			p.worker(workerID)
+		}()
 	}
 	log.Printf("Started %d workers", p.numWorkers)
 }
@@ -89,5 +96,10 @@ func (p *Pool) Submit(orderID string) {
 
 // Close shuts down the worker pool
 func (p *Pool) Close() {
+	log.Println("Initiating graceful shutdown...")
+
 	close(p.orderQueue)
+	p.wg.Wait()
+	p.wg.Wait()
+	log.Println("All workers stopped")
 }
