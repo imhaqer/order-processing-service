@@ -1,7 +1,6 @@
 package worker
 
 import (
-	"fmt"
 	"log"
 	"time"
 	"sync"
@@ -82,9 +81,9 @@ func (p *Pool) processOrder(orderID string) error {
 	time.Sleep(time.Second)
 	
 	// 10% random failure rate for demo purposes
-	if time.Now().UnixNano()%10 == 0 {
+	/*if time.Now().UnixNano()%10 == 0 {
 		return fmt.Errorf("simulated processing failure")
-	}
+	}*/
 	
 	return nil
 }
