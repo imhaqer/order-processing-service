@@ -33,7 +33,7 @@ func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var req models.OrderRequest
+	var req models.OrderRequest  // Define a struct for the request body
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
@@ -66,7 +66,7 @@ func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 
 	// Return created order
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusCreated)
+	w.WriteHeader(http.StatusCreated) // 201 Created
 	json.NewEncoder(w).Encode(order)
 }
 
@@ -96,7 +96,7 @@ func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Return order
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json") 
 	json.NewEncoder(w).Encode(order)
 }
 
@@ -107,6 +107,7 @@ func (h *OrderHandler) GetAllOrders(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Retrieve all orders
 	orders := h.storage.GetAll()
 	
 	w.Header().Set("Content-Type", "application/json")
