@@ -11,3 +11,12 @@ A concurrent order processing system built in Go, demonstrating goroutines, chan
 - **RESTful API**: HTTP endpoints for order creation and status tracking
 - **Graceful Shutdown**: Proper cleanup of resources on termination
 
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/orders` | Create a new order |
+| `GET` | `/orders` | Get all orders |
+| `GET` | `/orders/{id}` | Get order by ID |
+| `GET` | `/health` | Health check |
+
