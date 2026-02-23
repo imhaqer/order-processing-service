@@ -51,6 +51,15 @@ order-processing-service/
 
 ---
 
+## Tech Stack
+
+- **Language:** Go
+- **Concurrency:** goroutines, channels, `sync.RWMutex`, `sync.WaitGroup`
+- **Storage:** in-memory (`map[string]*Order`)
+- **HTTP:** `net/http` (standard library, no frameworks)
+
+---
+
 ## Resources
 
 - [A Tour of Go](https://go.dev/tour/list)
