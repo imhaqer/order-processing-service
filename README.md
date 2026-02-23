@@ -60,6 +60,11 @@ order-processing-service/
 
 ---
 
+## Testing
+
+API endpoints can be tested manually using [Postman](https://postman.com).
+
+---
 ## Resources
 
 - [A Tour of Go](https://go.dev/tour/list)
