@@ -13,6 +13,12 @@ A concurrent order processing system built in Go, demonstrating goroutines, chan
 
 ---
 
+## Architecture Diagram
+
+![System Design Diagram](images/ordering-service-diagram.drawio.svg)
+
+---
+
 ## Project Structure
 
 ```
