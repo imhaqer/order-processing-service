@@ -49,3 +49,13 @@ order-processing-service/
 | `GET` | `/orders/{id}` | Get order by ID |
 | `GET` | `/health` | Health check |
 
+---
+
+## Resources
+
+- [A Tour of Go](https://go.dev/tour/list)
+- [net/http — Go standard library docs](https://pkg.go.dev/net/http)
+- [Go net/http Package — Client and Server](https://clouddevs.com/go/net-http-package-client-and-server/)
+- [Video: Title 1](https://youtu.be/etSN4X_fCnM)
+- [Video: Title 2](https://youtu.be/Xy0DfAElY_Y)
+- [Video: Title 3](https://youtu.be/KFcyF66IeuE)
