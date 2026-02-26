@@ -21,6 +21,20 @@ API endpoints can be tested manually using [Postman](https://postman.com)
 
 ---
 
+## Running the Service
+
+```bash
+# Clone the repo
+git clone https://github.com/imhaqer/order-processing-service
+cd order-processing-service
+
+# Run
+go run ./cmd/server/main.go
+```
+Server starts on `:8080`
+
+---
+
 ## Demo
 
 ### Start the Server
@@ -101,23 +115,6 @@ order-processing-service/
 ## Architecture Diagram
 
 ![System Design Diagram](assets/ordering-service-diagram.drawio.svg)
-
----
-
-## Running the Service
-
-```bash
-# Clone the repo
-git clone https://github.com/imhaqer/order-processing-service
-cd order-processing-service
-
-# Run
-go run ./cmd/server/main.go
-```
-
-Server starts on `:8080`
-
----
 
 
 ---
