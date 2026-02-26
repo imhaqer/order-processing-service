@@ -1,5 +1,4 @@
 # order-processing-service
- **Work in Progress ...**
 
 A concurrent order processing system built in Go, demonstrating goroutines, channels, and thread-safe storage patterns for handling delivery orders at scale.
 
